@@ -7,6 +7,7 @@ namespace HelloApp
 {
     public partial class App : Application
     {
+        public static string localize = "en";
         public const string DATABASE_NAME = "phones.db";
         public static PhoneRepository database;
         public static PhoneRepository Database

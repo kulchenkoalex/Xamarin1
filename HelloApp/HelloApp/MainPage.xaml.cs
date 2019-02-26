@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -16,7 +15,7 @@ namespace HelloApp
         {
             InitializeComponent();
             DateTime thisDay = DateTime.Today;
-            currentTime.Text = Resource.ListFooter + " " + thisDay.ToString("d");
+            currentTime.Text = thisDay.ToString("d");
         }
 
         protected override void OnAppearing()
@@ -70,7 +69,7 @@ namespace HelloApp
                 {
                     IsRefreshing = true;
 
-                    await DisplayAlert("Информация","Данные о телефонах обновлены успешно!","OК");
+                    //await DisplayAlert("Информация","Данные о телефонах обновлены успешно!","OК");
 
                     IsRefreshing = false;
                 });
@@ -79,9 +78,16 @@ namespace HelloApp
 
         private void Lang_Clicked(object sender, EventArgs e)
         {
-            new System.Globalization.CultureInfo("ru");
-            
-            //MainPage = new NavigationPage(new MainPage());
+            if (App.localize == "en")
+            {
+                App.localize = "ru";
+            }
+            else
+            {
+                App.localize = "en";
+            }
+
+            Navigation.PushAsync(new MainPage());
         }
     }
 

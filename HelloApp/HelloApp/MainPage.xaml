@@ -70,6 +70,6 @@
                 </ListView.ItemTemplate>
             </ListView>
         <Button Text="{local:Translate AddPhone}" Clicked="CreatePhone" />
-        <Button x:Name="Lang" Text="Ru Lang" Clicked="Lang_Clicked"/>
+        <Button x:Name="Lang" Text="Сhange language" Clicked="Lang_Clicked"/>
     </StackLayout>
 </ContentPage>
