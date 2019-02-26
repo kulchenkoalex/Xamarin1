@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HelloApp;assembly=HelloApp"
+             x:Class="HelloApp.PhonePage" Title="{local:Translate TitleAddPhone}">
+    <StackLayout Padding="5,0,5,0">
+        <ScrollView>
+            <StackLayout>
+                <Label Text="{local:Translate PhoneName}" />
+                <Entry Text="{Binding Title}" />
+                <Label Text="{local:Translate PhoneCompany}" />
+                <Entry Text="{Binding Company}" />
+                <Label Text="{local:Translate PhonePrice}" />
+                <Entry Text="{Binding Price}" />
+                <Label Text="{local:Translate PhoneImage}" />
+                <Entry Text="{Binding ImagePath}" />
+            </StackLayout>
+        </ScrollView>
+        <StackLayout Orientation="Horizontal" WidthRequest="100">
+            <Button Text="{local:Translate SavePhone}" Clicked="SavePhone" />
+            <Button Text="{local:Translate DeletePhone}" Clicked="DeletePhone" />
+            <Button Text="{local:Translate Cancel}" Clicked="Cancel" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

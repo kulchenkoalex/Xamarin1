@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HelloApp;assembly=HelloApp"
+             x:Class="HelloApp.MainPage"
+             Title="{local:Translate TitleMain}">
+
+    <StackLayout>
+        <Label Text="{Binding Source={x:Reference Name=phonesList}, Path=SelectedItem.Title}"
+               FontSize="Large"
+               TextColor="Orange"
+               HorizontalTextAlignment="Center"/>
+        <ListView x:Name="phonesList"
+                  ItemSelected="OnItemSelected"
+                  HasUnevenRows="True"
+                  GroupDisplayBinding="{Binding Name}"
+                  ItemsSource="{Binding PhoneGroups}"
+                  IsPullToRefreshEnabled="True"
+                  RefreshCommand="{Binding RefreshCommand}"
+                  IsRefreshing="{Binding IsRefreshing}"
+                  IsGroupingEnabled="True"
+                  SeparatorColor="Green"
+                  BackgroundColor="LightGray">
+            <ListView.Header>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{local:Translate ListHeader}"
+                           FontSize="25"
+                           BackgroundColor="#c5cae9"
+                           TextColor="Green"
+                           HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                </ListView.Header>
+                <ListView.Footer>
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="currentTime"
+                            FontSize="Large"
+                            TextColor="Green"
+                            BackgroundColor="#c5cae9"
+                            HorizontalOptions="FillAndExpand"
+                            HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </ListView.Footer>
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell Height="30">
+                        <StackLayout Padding="10,0,10,0">
+                            <Label Text="{Binding Name}"
+                                   FontSize="Large"
+                                   TextColor="Red"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="15,0,15,0">
+                                <Image Source="{Binding ImagePath}"
+                                           WidthRequest="30"
+                                           HeightRequest="40">
+                                </Image>
+                                <StackLayout>
+                                    <Label Text="{Binding Title}"
+                                               FontSize="18" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        <Button Text="{local:Translate AddPhone}" Clicked="CreatePhone" />
+        <Button x:Name="Lang" Text="Ru Lang" Clicked="Lang_Clicked"/>
+    </StackLayout>
+</ContentPage>
