@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Windows.Input;
+using System.Xml.Serialization;
 using Xamarin.Forms;
 
 namespace HelloApp
@@ -78,16 +80,27 @@ namespace HelloApp
 
         private void Lang_Clicked(object sender, EventArgs e)
         {
-            if (App.localize == "en")
+            if (Language.Localize == "en")
             {
-                App.localize = "ru";
+                Language.Localize = "ru";
             }
             else
             {
-                App.localize = "en";
+                Language.Localize = "en";
             }
 
             Navigation.PushAsync(new MainPage());
+            Navigation.RemovePage(Navigation.NavigationStack[1]);
+            // объект для сериализации
+            //Language language = new Language("ru");
+
+            //// передаем в конструктор тип класса
+            //XmlSerializer formatter = new XmlSerializer(typeof(Language));
+            //using (FileStream fs = new FileStream(App.settingsPath, FileMode.OpenOrCreate))
+            //{
+            //    formatter.Serialize(fs, language);
+            //}
+           
         }
     }
 

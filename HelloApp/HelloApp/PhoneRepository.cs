@@ -15,11 +15,11 @@ namespace HelloApp
             string databasePath = DependencyService.Get<ISQLite>().GetDatabasePath(filename);
             database = new SQLiteConnection(databasePath);
             database.CreateTable<Phone>();
+            database.CreateTable<Lang>();
         }
         public IEnumerable<Phone> GetItems()
         {
             return (from i in database.Table<Phone>() select i).ToList();
-
         }
         public Phone GetItem(int id)
         {
@@ -43,6 +43,15 @@ namespace HelloApp
             {
                 return database.Insert(item);
             }
+        }
+
+        public IEnumerable<Lang> GetItems1()
+        {
+            return (from i in database.Table<Lang>() select i).ToList();
+        }
+        public Lang GetItem1(int id)
+        {
+            return database.Get<Lang>(id);
         }
     }
 }

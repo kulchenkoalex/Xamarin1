@@ -11,4 +11,11 @@ namespace HelloApp
         public int Price { get; set; }
         public string ImagePath { get; set; }
     }
+
+    public class Lang
+    {
+        [PrimaryKey, AutoIncrement, Column("_id")]
+        public int Id { get; set; }
+        public string Language { get; set; }
+    }
 }

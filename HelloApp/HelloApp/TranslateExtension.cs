@@ -15,7 +15,8 @@ namespace HelloApp
 
         public TranslateExtension()
         {
-            ci = new CultureInfo(App.localize); /*DependencyService.Get<ILocalize>().GetCurrentCultureInfo();*/
+            ci = new CultureInfo(Language.Localize);
+            //ci = new CultureInfo(Settings.localize); /*DependencyService.Get<ILocalize>().GetCurrentCultureInfo();*/
         }
 
         public string Text { get; set; }
