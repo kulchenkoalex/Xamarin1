@@ -6,10 +6,10 @@
              Title="{local:Translate TitleMain}">
 
     <StackLayout>
-        <Label Text="{Binding Source={x:Reference Name=phonesList}, Path=SelectedItem.Title}"
+        <!--<Label Text="{Binding Source={x:Reference Name=phonesList}, Path=SelectedItem.Title}"
                FontSize="Large"
                TextColor="Orange"
-               HorizontalTextAlignment="Center"/>
+               HorizontalTextAlignment="Center"/>-->
         <ListView x:Name="phonesList"
                   ItemSelected="OnItemSelected"
                   HasUnevenRows="True"

@@ -24,7 +24,7 @@ namespace HelloApp
         {
             if (emailEntry.Text == emailAdmin && passwordEntry.Text == passwordAdmin)
             {
-                Navigation.PushAsync(new MainPage());
+                Navigation.PushAsync(new MenuPage());
             }
             else
             {

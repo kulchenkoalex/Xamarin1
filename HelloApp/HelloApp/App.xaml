@@ -12,7 +12,8 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource blueColor}"></Setter>
                 <Setter Property="TextColor" Value="{StaticResource whiteColor}"></Setter>
             </Style>
+
         </ResourceDictionary>
-        
+
     </Application.Resources>
 </Application>
